@@ -75,7 +75,7 @@ void ANaiveChunk::GenerateMesh()
 					{
 						if (Check(GetPositionInDirection(Direction, Position)))
 						{
-							CreateFace(Direction, Position * 100);
+							CreateFace(Direction, Position * VoxelSize);
 						}
 					}
 				}

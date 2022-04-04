@@ -3,16 +3,16 @@
 
 #include "Voxel/Utils/VoxelFunctionLibrary.h"
 
-FIntVector UVoxelFunctionLibrary::WorldToBlockPosition(const FVector& Position)
+FIntVector UVoxelFunctionLibrary::WorldToBlockPosition(const FVector& Position, const int VoxelSize)
 {
-	return FIntVector(Position) / 100;
+	return FIntVector(Position) / VoxelSize;
 }
 
-FIntVector UVoxelFunctionLibrary::WorldToLocalBlockPosition(const FVector& Position, const int Size)
+FIntVector UVoxelFunctionLibrary::WorldToLocalBlockPosition(const FVector& Position, const int Size, const int VoxelSize)
 {
-	const auto ChunkPos = WorldToChunkPosition(Position, Size);
+	const auto ChunkPos = WorldToChunkPosition(Position, Size, VoxelSize);
 	
-	auto Result = WorldToBlockPosition(Position) - ChunkPos * Size;
+	auto Result = WorldToBlockPosition(Position, VoxelSize) - ChunkPos * Size;
 
 	// Negative Normalization
 	if (ChunkPos.X < 0) Result.X--;
@@ -22,11 +22,11 @@ FIntVector UVoxelFunctionLibrary::WorldToLocalBlockPosition(const FVector& Posit
 	return Result;
 }
 
-FIntVector UVoxelFunctionLibrary::WorldToChunkPosition(const FVector& Position, const int Size)
+FIntVector UVoxelFunctionLibrary::WorldToChunkPosition(const FVector& Position, const int Size, const int VoxelSize)
 {
 	FIntVector Result;
 
-	const int Factor = Size * 100;
+	const int Factor = Size * VoxelSize;
 	const auto IntPosition = FIntVector(Position);
 
 	if (IntPosition.X < 0) Result.X = (int)(Position.X / Factor) - 1;

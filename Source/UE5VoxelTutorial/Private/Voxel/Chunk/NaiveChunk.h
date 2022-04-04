@@ -28,13 +28,13 @@ private:
 	TArray<EBlock> Blocks;
 
 	const FVector BlockVertexData[8] = {
-		FVector(100,100,100),
-		FVector(100,0,100),
-		FVector(100,0,0),
-		FVector(100,100,0),
-		FVector(0,0,100),
-		FVector(0,100,100),
-		FVector(0,100,0),
+		FVector(VoxelSize,VoxelSize,VoxelSize),
+		FVector(VoxelSize,0,VoxelSize),
+		FVector(VoxelSize,0,0),
+		FVector(VoxelSize,VoxelSize,0),
+		FVector(0,0,VoxelSize),
+		FVector(0,VoxelSize,VoxelSize),
+		FVector(0,VoxelSize,0),
 		FVector(0,0,0)
 	};
 

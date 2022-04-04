@@ -28,6 +28,9 @@ public:
 	
 	UPROPERTY(EditInstanceOnly, Category="Chunk")
 	int Size = 32;
+	
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Chunk")
+	int VoxelSize = 100;
 
 	UPROPERTY(EditInstanceOnly, Category="Height Map")
 	EGenerationType GenerationType;

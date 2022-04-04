@@ -48,10 +48,10 @@ void AChunkBase::GenerateHeightMap()
 	switch (GenerationType)
 	{
 	case EGenerationType::GT_3D:
-		Generate3DHeightMap(GetActorLocation() / 100);
+		Generate3DHeightMap(GetActorLocation() / VoxelSize);
 		break;
 	case EGenerationType::GT_2D:
-		Generate2DHeightMap(GetActorLocation() / 100);
+		Generate2DHeightMap(GetActorLocation() / VoxelSize);
 		break;
 	default:
 		throw std::invalid_argument("Invalid Generation Type");

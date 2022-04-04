@@ -200,10 +200,10 @@ void AGreedyChunk::CreateQuad(
 	const auto Color = FColor(96, 35, 115, 255);
 
 	MeshData.Vertices.Append({
-		FVector(V1) * 100,
-		FVector(V2) * 100,
-		FVector(V3) * 100,
-		FVector(V4) * 100
+		FVector(V1) * VoxelSize,
+		FVector(V2) * VoxelSize,
+		FVector(V3) * VoxelSize,
+		FVector(V4) * VoxelSize
 	});
 
 	MeshData.Triangles.Append({

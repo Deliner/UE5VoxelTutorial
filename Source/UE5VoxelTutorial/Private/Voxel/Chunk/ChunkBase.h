@@ -24,6 +24,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category="Chunk")
 	int Size = 64;
+
+	UPROPERTY(EditDefaultsOnly, Category="Chunk")
+	int VoxelSize = 100;
 	
 	TObjectPtr<UMaterialInterface> Material;
 	float Frequency;
