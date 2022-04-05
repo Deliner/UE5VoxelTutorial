@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FastNoise2/FastNoise2BlueprintLibrary.h"
 #include "GameFramework/Actor.h"
 
 #include "Voxel/Utils/ChunkMeshData.h"
@@ -48,9 +49,10 @@ protected:
 
 	TObjectPtr<UProceduralMeshComponent> Mesh;
 	FastNoiseLite* Noise;
+	UFastNoise2PerlinGenerator *Perlin;
+	UFastNoise2FractalFBmGenerator *Fractal;
 	FChunkMeshData MeshData;
 	int VertexCount = 0;
-
 private:
 	void ApplyMesh() const;
 	void ClearMesh();

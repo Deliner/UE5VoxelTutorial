@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UnrealFastNoise2.h"
 #include "GameFramework/Actor.h"
 
 #include "Voxel/Utils/Enums.h"
@@ -47,6 +48,7 @@ protected:
 
 private:
 	int ChunkCount;
+	FUnrealFastNoise2Module *Module;
 	
 	void Generate3DWorld();
 	void Generate2DWorld();

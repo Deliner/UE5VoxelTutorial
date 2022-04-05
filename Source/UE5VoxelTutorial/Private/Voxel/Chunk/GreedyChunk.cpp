@@ -13,14 +13,28 @@ void AGreedyChunk::Setup()
 
 void AGreedyChunk::Generate2DHeightMap(const FVector Position)
 {
+
+	// auto gen = Perlin->GetGenerator();
+	// gen.get();
+	TArray<float> arr;
+	arr.SetNum(Size*Size);
+	Fractal->GenTileable2D(arr, Size, 0.03);
+	
 	for (int x = 0; x < Size; x++)
 	{
 		for (int y = 0; y < Size; y++)
 		{
-			const float Xpos = x + Position.X;
-			const float ypos = y + Position.Y;
-
-			const int Height = FMath::Clamp(FMath::RoundToInt((Noise->GetNoise(Xpos, ypos) + 1) * Size / 2), 0, Size);
+			// auto v = FVector2D((x+0.0)/Size + Position.X,(y+0.0)/Size + Position.Y);
+			// auto h = Fractal->GenSingle2D(v) + 1;
+			// auto h = Fractal->GenSingle2D(v)+1;
+			auto h = arr[x+y*Size]+1;
+			// auto h = Noise->GetNoise(v.X, v.Y) + 1;
+			// UE_LOG(LogTemp, Warning, TEXT("h : %d"), h);
+			const int Height = FMath::Clamp(FMath::RoundToInt(h* Size / 2), 0, Size);
+			// const int Height = FMath::Clamp(h/2.0*Size, 0, Size);
+			// const int Height = FMath::Clamp(h/2.0*Size, 0, Size);
+			// UE_LOG(LogTemp, Warning, TEXT("Height : %d"), Height);
+			// const int Height = FMath::RoundToInt(h);
 
 			for (int z = 0; z < Height; z++)
 			{

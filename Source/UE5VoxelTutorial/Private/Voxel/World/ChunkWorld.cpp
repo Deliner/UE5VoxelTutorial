@@ -3,6 +3,7 @@
 
 #include "ChunkWorld.h"
 
+// #include "UnrealFastNoise2.h"
 #include "Voxel/Chunk/ChunkBase.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -17,6 +18,9 @@ AChunkWorld::AChunkWorld()
 void AChunkWorld::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// Module = new FUnrealFastNoise2Module();
+	// Module->StartupModule();
 	
 	switch (GenerationType)
 	{

@@ -32,6 +32,10 @@ void AChunkBase::BeginPlay()
 	Noise->SetNoiseType(FastNoiseLite::NoiseType_Perlin);
 	Noise->SetFractalType(FastNoiseLite::FractalType_FBm);
 
+	Perlin = UFastNoise2BlueprintLibrary::MakePerlinGenerator();
+	Fractal = UFastNoise2BlueprintLibrary::MakeFractalFBmGenerator(Perlin, nullptr, 0.5f, nullptr, 0.f, 2.0f, 3);
+	// Perlin->PostInitProperties();
+	// Fractal->PostInitProperties();
 	Setup();
 	
 	GenerateHeightMap();
