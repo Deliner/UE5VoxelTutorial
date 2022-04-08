@@ -11,7 +11,7 @@ Plugins/Developer/RiderLink
 *.opensdf
 *.opendb
 *.sdf
-*.sln
+
 *.suo
 *.xcodeproj
 *.xcworkspace
